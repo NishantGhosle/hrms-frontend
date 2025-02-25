@@ -16,7 +16,7 @@ const LeaveForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/leaves`, formData, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/leaves`, formData, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       toast.success(res.data.message);

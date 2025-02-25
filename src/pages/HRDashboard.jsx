@@ -19,7 +19,7 @@ const HRDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       console.log('Fetch Employees Token:', token);
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/employees`, {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/employees`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setEmployees(res.data.employees);
@@ -33,7 +33,7 @@ const HRDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       console.log('Fetch Leaves Token:', token);
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/leaves`, {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/leaves`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setLeaves(res.data.leaves);
@@ -47,7 +47,7 @@ const HRDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       console.log('Fetch Payrolls Token:', token);
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/payroll`, {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/payroll`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPayrolls(res.data.payrolls);
@@ -62,7 +62,7 @@ const HRDashboard = () => {
       const token = localStorage.getItem('token');
       console.log('Handle Leave Action Token:', token);
       const res = await axios.put(
-        `${import.meta.env.VITE_API_URL}/leaves/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/leaves/${id}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -83,7 +83,7 @@ const HRDashboard = () => {
       const token = localStorage.getItem('token');
       console.log('Generate Payroll Token:', token);
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/payroll/generate`,
+        `${import.meta.env.VITE_API_URL}/api/payroll/generate`,
         { month },
         { headers: { Authorization: `Bearer ${token}` } }
       );

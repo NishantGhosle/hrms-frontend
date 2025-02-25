@@ -44,7 +44,7 @@ const EmployeeForm = () => {
     };
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/employees`, data, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/employees`, data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json',

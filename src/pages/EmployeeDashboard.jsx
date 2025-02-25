@@ -32,7 +32,7 @@ const EmployeeDashboard = () => {
       const token = localStorage.getItem('token');
       console.log('Check In Token:', token);
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/attendance/check-in`,
+        `${import.meta.env.VITE_API_URL}/api/attendance/check-in`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -52,7 +52,7 @@ const EmployeeDashboard = () => {
       const token = localStorage.getItem('token');
       console.log('Check Out Token:', token);
       const res = await axios.put(
-        `${import.meta.env.VITE_API_URL}/attendance/check-out`,
+        `${import.meta.env.VITE_API_URL}/api/attendance/check-out`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -75,7 +75,7 @@ const EmployeeDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       console.log('Fetch Payrolls Token:', token);
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/payroll`, {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/payroll`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPayrolls(res.data.payrolls);
@@ -89,7 +89,7 @@ const EmployeeDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       console.log('Fetch Profile Token:', token);
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/employees/me`, {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/employees/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfile(res.data.employee);
